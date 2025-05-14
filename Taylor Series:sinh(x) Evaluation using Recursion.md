@@ -22,9 +22,30 @@ To write a Python program to evaluate the value of **sinh(x)** for **n terms** u
 ---
 
 ## 💻 PROGRAM:
+```
+def sinh(x, n, current_term=0):
+ 
+    if n == 0:
+        return 0
+    else:
+        term = (x ** (2*current_term + 1)) / factorial(2 * current_term + 1)
+        return term + sinh(x, n-1, current_term + 1)
+def factorial(num):
+    if num == 0:
+        return 1
+    else:
+        return num * factorial(num - 1)
 
-ADD CODE HERE
+x = float(input())
+n = int(input())
+result = sinh(x, n)
 
-## OUTPUT
-
-## RESULT
+print(f"The value of sinh({x}) using Taylor Series with {n} terms is: {result}")
+````
+## OUTPUT:
+```
+Input         Result
+  1       Enter the number of terms in the Taylor Series: 10
+```
+## RESULT:
+The program was successful
